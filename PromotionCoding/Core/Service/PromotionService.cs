@@ -17,7 +17,7 @@ namespace PromotionCoding.Core.Service
             int unitsD = Convert.ToInt32(product.Where(s => s.SKUID == "D").Select(n => n.Qty).FirstOrDefault());
             int priceA = 0;
             int priceB = 0;
-            //int priceC = 0, priceD = 0, priceCD = 0;
+            int priceCD = 0;
 
             if (unitsA > 0)
             {
@@ -27,11 +27,15 @@ namespace PromotionCoding.Core.Service
             {
                 priceB = 45 * (unitsB / 2) + 30 * (unitsB % 2);
             }
-            //if (unitsC < unitsD)
-            //{
-            //    priceCD = unitsC * 30 + 2;
-            //}
-            return priceA + priceB;
+            if (unitsC <= unitsD)
+            {
+                priceCD = unitsC * 30  + (unitsD - unitsC) * 15;
+            }
+            else if(unitsC >= unitsD)
+            {
+                priceCD = unitsD * 30  + (unitsC - unitsD) * 20;
+            }
+            return priceA + priceB + priceCD;
         }
     }
 }
