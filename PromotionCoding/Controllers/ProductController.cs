@@ -9,15 +9,16 @@ namespace PromotionCoding.Controllers
 {
     public class ProductController : Controller
     {
-        private IProductDetailsRepository _productDetailsRepository;
+        
+        private IProductservice _productservice;
 
-        public ProductController(IProductDetailsRepository productDetailsRepository)
+        public ProductController(IProductservice productservice)
         {
-            _productDetailsRepository = productDetailsRepository;
+            _productservice = productservice;
         }
         public ViewResult Products()
         {
-            return View(_productDetailsRepository.GetProducts());
+            return View(_productservice.GetProducts());
         }
 
         
