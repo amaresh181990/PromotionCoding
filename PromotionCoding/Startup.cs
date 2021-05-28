@@ -28,6 +28,8 @@ namespace PromotionCoding
             services.AddControllersWithViews();
             services.AddTransient<IProductDetailsRepository, StaticProductRepository>();
             services.AddTransient<IProductservice, ProductDetailsService>();
+            services.AddTransient<IPromotionService, PromotionService>();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

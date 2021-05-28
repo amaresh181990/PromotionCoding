@@ -6,7 +6,7 @@
         <title></title>
     </head>
     <body>
-        @using (Html.BeginForm("FetchTotalPrice", "Products"))
+        @using (Html.BeginForm("FetchTotalPrice", "Product"))
         {
         <table border="1">
             <thead>
@@ -43,7 +43,7 @@
             </tbody>
 
         </table>
-        @*<button onclick="location.href='@Url.Action(" FetchTotalPrice", "Products" )'">Checkout</button>*@
+        
         <input type="submit" name="name" value="FetchTotalPrice" />
 
         }
