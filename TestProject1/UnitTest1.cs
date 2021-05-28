@@ -52,7 +52,21 @@ namespace TestProject1
             int s = productController.FetchTotalPrice(Product);
             Assert.AreEqual(370, s);
         }
-        
+        [TestMethod]
+        public void Validate_TotalPrice_Scenario3_Success()
+        {
+            List<Product> Product = new List<Product>()
+            {
+                new Product() { SKUID = "A" , Price = 50,Qty = 3},
+                new Product() { SKUID = "B" , Price = 30,Qty = 5},
+                new Product() { SKUID = "C" , Price = 20,Qty = 1},
+                new Product() { SKUID = "D" , Price = 15,Qty = 1}
+            };
+
+
+            int s = productController.FetchTotalPrice(Product);
+            Assert.AreEqual(280, s);
+        }
 
     }
 }
