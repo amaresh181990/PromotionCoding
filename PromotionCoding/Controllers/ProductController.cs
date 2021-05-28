@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using PromotionCoding.Core.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +9,17 @@ namespace PromotionCoding.Controllers
 {
     public class ProductController : Controller
     {
-        public string Products()
+        private IProductDetailsRepository _productDetailsRepository;
+
+        public ProductController(IProductDetailsRepository productDetailsRepository)
         {
-            return "Hello";
+            _productDetailsRepository = productDetailsRepository;
         }
+        public ViewResult Products()
+        {
+            return View(_productDetailsRepository.GetProducts());
+        }
+
+        
     }
 }

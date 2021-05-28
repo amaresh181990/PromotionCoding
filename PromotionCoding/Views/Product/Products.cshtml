@@ -1,5 +1,51 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model List<Products>
+
+ 
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title></title>
+    </head>
+    <body>
+        @using (Html.BeginForm("FetchTotalPrice", "Products"))
+        {
+        <table border="1">
+            <thead>
+                <tr>
+                    <td>Product</td>
+                    <td>Price per unit</td>
+                    <td>Quantity</td>
+
+                </tr>
+            </thead>
+            <tbody>
+
+                @for(int i = 0; i < Model.Count; i++)
+                {
+                <tr>
+                    <td>@Html.TextBoxFor(m => m[i].SKUID)</td>
+                    <td>@Html.TextBoxFor(m => m[i].Price)</td>
+                    <td>@Html.TextBoxFor(m => m[i].Qty)</td>
+                    @*
+                    <td><input type="text" name="@product.SKUID" value="@product.SKUID" /></td>
+                    <td><input type="text" name="@product.Price" value="@product.Price" /></td>
+                    <td><input type="text" name="@product.Qty" value="@product.Qty" /></td>*@
+                </tr>
+
+
+                }
+
+
+
+
+
+
+
+            </tbody>
+
+        </table>
+        @*<button onclick="location.href='@Url.Action(" FetchTotalPrice", "Products" )'">Checkout</button>*@
+        <input type="submit" name="name" value="FetchTotalPrice" />
+
+        }
+    </body>
+</html>
